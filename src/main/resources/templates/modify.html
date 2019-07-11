@@ -1,0 +1,10 @@
+<meta charset="utf-8">
+<h1>URL 수정</h1>
+<form th:if="${url != null}" th:object="${url}"
+	th:action="@{/urls/{id}(id=*{id})}" method="POST">
+	<input type="hidden" name="_method" value="PUT" /> 
+	<label>수정할 URL</label>
+	<input type="text" name="originalUrl" th:value="*{originalUrl}" size="200" /><br />
+	<input type="submit" value="수정" />
+</form>
+<p th:unless="${url != null}">URL 정보가 없습니다.</p>
